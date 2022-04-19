@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-
+//timestame trace daate 
 const UserSchema = new Schema({
     Email: String,
     Lastname : String,
@@ -10,5 +10,5 @@ const UserSchema = new Schema({
 
 
 
-
-module.exports = mongoose.model('users', UserSchema)
+//mongoose.model(nom du model inserre dans la base,nom de schema)
+module.exports = mongoose.model('user', UserSchema)
