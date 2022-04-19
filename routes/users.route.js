@@ -15,7 +15,7 @@ router.get('/users/:id', FindSinglUser)
 /* add user */
 router.put('/users/:id', UpdateUser)
 
-/* add user */
+/* delete user */
 router.delete('/users/:id', DeleteUser)
 
 module.exports = router;
