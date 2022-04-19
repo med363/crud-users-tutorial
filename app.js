@@ -18,7 +18,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 mongoose.connect(process.env.MONGO_URI)
 .then(()=>console.log('DB CONNECTED'))
 .catch(err=>console.log(err.message))
-
+//path principale et dans users.routes tous les routes
 app.use('/api', routerUsers)
 
 module.exports = app;
