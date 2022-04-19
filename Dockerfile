@@ -1,7 +1,7 @@
 /*image de base*/
 FROM node:17-alpine
-/*current dir place of work*/
-WORKDIR /.
+/*current dir place of work and package for reading params of proxy*/
+WORKDIR /.\./client/package.json
 /*cpy everything inside my container*/
 COPY . .
 /*install packages*/
