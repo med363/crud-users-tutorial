@@ -23,7 +23,7 @@ stages {
 
     stage('Pushing Image') {
       environment {
-               registryCredential = 'mohamedamineblibech'
+               registryCredential = 'dockerhublogin'
            }
       steps{
         script {
