@@ -24,5 +24,25 @@ spec:
   selector:
     matchLabels:
       type: webserver 
+      
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-service
+spec:
+  type: NodePort
+  ports:
+#port of container inside pod
+  - targetPort: 3000
+#port de service prend flux 3000 redirection vers port du pod
+    port: 80
+#port phy 3ibaratan map 3000 redirger vers port du service 80
+    nodePort: 30000
+#ya3ref les pods ili na7ki a3lihom ->label pod
+  selector:
+    type: webserver
+
 
 
