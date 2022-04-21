@@ -1,5 +1,5 @@
 pipeline {
- enviroment {
+ environment {
   dockerimagername = "mohamedamineblibech/crudapp"
   dockerImage = ""
 }
