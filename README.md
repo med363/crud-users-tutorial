@@ -45,3 +45,10 @@ change the content of MONGO_URI in your .env file with you access URI mongoDB cl
 / (principal page)
 
 /:id (find user by id)
+
+### Deploy app inside k8s with jenkins
+### 1.create jenkins container
+```bash
+sudo docker run -u 0 --privileged --name jenkins -it -d -p 8089:8080 -p 55555:50000 -v /var/run/docker.sock:/var/run/docker.sock -v $(which docker):/usr/bin/docker -v /home/jenkins_home:/var/jenkins_home jenkins/jenkins:latest
+```
+
