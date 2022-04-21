@@ -9,7 +9,7 @@ agent any
 stages {
   stage('checkout source') {
     steps {
-      git 'https://github.com/med363/crud-users-tutorial.git'
+      git clone 'https://github.com/med363/crud-users-tutorial.git'
     }
   }
   
