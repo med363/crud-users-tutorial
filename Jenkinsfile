@@ -8,9 +8,11 @@ agent any
 
 stages {
   stage('checkout source') {
-    steps {
-      git 'https://github.com/med363/crud-users-tutorial.git'
-    }
+             steps{
+                 sh "[ -d 'crud-users-tutorial' ] && rm -rf crud-users-tutorial"
+                 echo "cloning"
+                sh "git clone https://github.com/med363/crud-users-tutorial.git"
+             }
   }
   
   stage('Build image') {
