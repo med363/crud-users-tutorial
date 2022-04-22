@@ -3,7 +3,7 @@ pipeline {
 	registryCredential = 'dockerhublogin'
           }
 
-agent any
+	agent { dockerfile true }
 
 stages {
   stage('checkout source') {
