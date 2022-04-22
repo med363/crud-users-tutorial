@@ -1,4 +1,5 @@
 #4 elts principale apiVersion ,kind(pod [[restart auto ]], Replicaset[[si node down replicat auto sur une autre node]],Deploiment[[]]),metadata[[dictionaire ]],spec[[specification:template of containers]]
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
