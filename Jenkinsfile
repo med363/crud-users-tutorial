@@ -41,26 +41,23 @@ stages {
 			}
 		}
 
-		stage('Login to docker hub account') {
-
-			steps {
-				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
-			}
-		}
 
 		stage('Push image into docker hub') {
 
 			steps {
-				sh 'docker push mohamedamineblibech/crudapp:1.1.1'
+        script {
+            docker.withRegistry( 'https://registry.hub.docker.com', registryCredential ) {
+            dockerImage.push("1.1.1")
+	  }
 			}
 		}
 	}
 
-	post {
-		always {
-			sh 'docker logout'
-		}
-	}
+//	post {
+//		always {
+//			sh 'docker logout'
+//		}
+//	}
 
     stage('Deploying App to Kubernetes') {
       steps {
