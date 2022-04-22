@@ -7,25 +7,16 @@ pipeline {
 agent any
 
 stages {
-   stage('install git') {
-             steps{
-                 sh "[ -d 'crud-users-tutorial' ] && rm -rf crud-users-tutorial"
-                 echo "cloning"
-                sh "git clone https://github.com/med363/crud-users-tutorial.git"
-             }
-  }
   stage('checkout source') {
              steps{
-                 sh "[ -d 'crud-users-tutorial' ] && rm -rf crud-users-tutorial"
-                 echo "cloning"
-                sh "git clone https://github.com/med363/crud-users-tutorial.git"
+                git url:'https://github.com/med363/crud-users-tutorial.git', branch:'main'
              }
   }
   
   stage('Build image') {
     steps{
       script {
-        dockerImage = docker build dockerimagename
+        dockerImage = docker.build dockerimagename
       }
      }
     }
