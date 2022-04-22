@@ -1,7 +1,7 @@
 pipeline {
- environment {
-    DOCKERHUB_CREDENTIALS=credentials('dockerhub')
-}
+      environment {
+	registryCredential = 'dockerhublogin'
+          }
 
 agent any
 
@@ -37,7 +37,7 @@ stages {
 		stage('Build image') {
 
 			steps {
-				sh 'docker build -t thetips4you/nodeapp_test:latest .'
+				sh 'docker build -t mohamedamineblibech/crudapp:1.1.1 .'
 			}
 		}
 
