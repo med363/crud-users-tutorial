@@ -3,7 +3,7 @@ pipeline {
 	registryCredential = 'dockerhublogin'
           }
 
-	agent { dockerfile true }
+	agent { label 'kubepod'}
 
 stages {
   stage('checkout source') {
@@ -12,16 +12,16 @@ stages {
              }
   }
   
-	    stage('Maven Install') {
-      agent {
-        docker {
-          image 'maven:3.5.0'
-        }
-      }
-      steps {
-        sh 'mvn clean install'
-      }
-    }
+//	    stage('Maven Install') {
+//      agent {
+//        docker {
+//          image 'maven:3.5.0'
+//        }
+//      }
+//      steps {
+//        sh 'mvn clean install'
+//      }
+//    }
   //stage('Build image') {
   //  steps{
   //    script {
@@ -44,24 +44,24 @@ stages {
 //    }
  
  
-		stage('Build image') {
+//		stage('Build image') {
 
-			steps {
-				sh 'docker build -t mohamedamineblibech/crudapp:1.1.1 .'
-			}
-		}
+//			steps {
+//				sh 'docker build -t mohamedamineblibech/crudapp:1.1.1 .'
+//			}
+//		}
 
 
-		stage('Push image into docker hub') {
-
-			steps {
-        script {
-            docker.withRegistry( 'https://registry.hub.docker.com', registryCredential ) {
-            dockerImage.push("1.1.1")
-	  }
-			}
-		}
-	}
+//		stage('Push image into docker hub') {
+//
+//			steps {
+//        script {
+//            docker.withRegistry( 'https://registry.hub.docker.com', registryCredential ) {
+//            dockerImage.push("1.1.1")
+//	  }
+//			}
+//		}
+//	}
 
 //	post {
 //		always {
