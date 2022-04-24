@@ -3,7 +3,26 @@ pipeline {
 //	registryCredential = 'dockerhublogin'
 //          }
 
-	agent any
+	agent{
+		kubernetes{
+			yaml '''
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-pod
+  labels:
+    type: reactnode
+spec:
+  containers:
+  - name: crud-container
+    image: mohamedamineblibech/crudapp:1.1.1
+    ports:
+      - name: crud-container
+        containerPort: 3000
+        targetPort: 80
+'''
+		}
+	}
 
 stages {
   stage('checkout source') {
