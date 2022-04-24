@@ -3,7 +3,7 @@ pipeline {
 //	registryCredential = 'dockerhublogin'
 //          }
 
-	agent{ label 'kube pod' }
+	agent{ kubernetes = true }
 
 
 stages {
