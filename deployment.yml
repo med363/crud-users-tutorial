@@ -30,7 +30,7 @@ spec:
     metadata:
       name: my-pod
       labels:
-        type: webserver
+        type: reactnode
     spec:
         containers:
         - name: crud-container
