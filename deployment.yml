@@ -4,7 +4,7 @@ kind: Pod
 metadata:
   name: my-pod
   labels:
-    type: webserver
+    type: reactnode
 spec:
   containers:
   - name: crud-container
@@ -39,7 +39,7 @@ spec:
 #gere les objet nouvellement cree 
   selector:
     matchLabels:
-      type: webserver 
+      type: reactnode 
       
 ---
 
@@ -58,7 +58,7 @@ spec:
     nodePort: 30000
 #ya3ref les pods ili na7ki a3lihom ->label pod
   selector:
-    type: webserver
+    type: reactnode
 
 
 
