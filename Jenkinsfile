@@ -3,7 +3,7 @@ pipeline {
 //	registryCredential = 'dockerhublogin'
 //          }
 
-	agent{ kubernetes = true }
+	agent any
 
 
 stages {
