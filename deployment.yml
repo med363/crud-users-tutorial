@@ -1,3 +1,18 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-pod
+  labels:
+    type: webserver
+spec:
+  containers:
+  - name: crud-container
+    image: mohamedamineblibech/crudapp:1.1.1
+    ports:
+      - name: crud-container
+        containerPort: 3000
+        targetPort: 80
 #4 elts principale apiVersion ,kind(pod [[restart auto ]], Replicaset[[si node down replicat auto sur une autre node]],Deploiment[[]]),metadata[[dictionaire ]],spec[[specification:template of containers]]
 ---
 apiVersion: apps/v1
