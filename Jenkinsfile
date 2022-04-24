@@ -1,9 +1,9 @@
 pipeline {
-      environment {
-	registryCredential = 'dockerhublogin'
-          }
+//      environment {
+//	registryCredential = 'dockerhublogin'
+//          }
 
-	agent { label 'kubepod'}
+	agent any
 
 stages {
   stage('checkout source') {
