@@ -18,10 +18,10 @@ module.exports = function ValidateUser(data) {
     errors.Email = "Required Email";
   }
   if (validator.isEmpty(data.Lastname)) {
-    errors.Lastname = "Required Lastname";
+    errors.Lastname = "Required fullname";
   }
   if (validator.isEmpty(data.Firstname)) {
-    errors.Firstname = "Required Firstname";
+    errors.Firstname = "Required Description";
   }
   if (validator.isEmpty(data.Age)) {
     errors.Age = "Required Email";

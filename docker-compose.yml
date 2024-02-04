@@ -1,0 +1,42 @@
+version: '3.0'
+services:
+ api:
+   build: 
+    context: ./
+   user: root
+   privileged: true
+   container_name: api
+   ports:
+     - "3700:3700"
+  #  command: npm start
+   environment:
+     MONGO_URI: mongodb://user:pwd@db:27017
+  #  volumes:
+  #    - "./server/:/app"
+  #    # w nijim zeda nit7akim fil node_modules
+  #    - "/app/node_modules"
+
+ web:
+   build: 
+     context: ./client/
+   container_name: web
+   user: root
+   privileged: true
+   ports:
+     - "3534:3000"
+  #  command: npm start
+  #  volumes:
+  #    - "./client/:/app"
+  #    # w nijim zeda nit7akim fil node_modules
+  #    - "/app/node_modules"
+       
+ db:
+   image: mongo
+   restart: always
+   environment:
+     MONGO_ROOT_USER: user
+     MONGO_ROOT_PWD: pwd
+   volumes:
+     - db-data:/data/db
+volumes:
+  db-data: {}
